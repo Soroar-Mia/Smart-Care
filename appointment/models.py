@@ -20,7 +20,7 @@ class Appointment(models.Model):
     appointment_status = models.CharField(choices=APPOINTMENT_STATUS, max_length=10, default="Pending")
     appointment_types = models.CharField(choices=APPOINTMENT_TYPES, max_length=10)
     symptom = models.TextField()
-    time = models.OneToOneField(AvailableTime, on_delete=models.CASCADE)
+    time = models.ForeignKey(AvailableTime, on_delete=models.CASCADE)
     cancel = models.BooleanField(default=False)
     
     def __str__(self):
